@@ -1,0 +1,2777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨琦 - 产品设计师简历 (科技感风格)</title>
+    <style>
+        :root {
+            --primary: #0c0f16;
+            --secondary: #1a1f2c;
+            --accent: #00e5ff;
+            --accent-alt: #ff3d7f;
+            --text: #f0f0f0;
+            --text-muted: #8b97b1;
+            --border: #2a314a;
+            --gradient: linear-gradient(135deg, #00e5ff, #2979ff);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        /* 添加dylan-logo样式 */
+        .dylan-logo {
+            width: 100%;
+            height: 100%;
+            max-width: 220px;
+            max-height: 220px;
+            filter: drop-shadow(0 0 20px var(--accent));
+            position: relative;
+            z-index: 2;
+            animation: pulse-logo 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-logo {
+            0% { filter: drop-shadow(0 0 15px var(--accent)); transform: scale(1); }
+            100% { filter: drop-shadow(0 0 25px var(--accent)); transform: scale(1.05); }
+        }
+        
+        .dylan-logo path {
+            fill: var(--accent);
+        }
+        
+        .profile-image {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(circle at center, rgba(0, 229, 255, 0.15), rgba(0, 0, 0, 0.3));
+        }
+        
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+            z-index: 1;
+        }
+        
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                          rgba(0, 229, 255, 0.05) 0%, 
+                          transparent 50%, 
+                          rgba(41, 121, 255, 0.05) 100%);
+            z-index: 3;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .scan-effect {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            top: 0;
+            left: 0;
+            animation: scan 3s linear infinite;
+            opacity: 0.7;
+            z-index: 4;
+        }
+        
+        /* 添加环绕动态元素 */
+        .logo-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+        
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation: float-particle 6s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(2) {
+            top: 70%;
+            left: 25%;
+            width: 3px;
+            height: 3px;
+            animation: float-particle 8s ease-in-out infinite 1s;
+        }
+        
+        .particle:nth-child(3) {
+            top: 30%;
+            left: 75%;
+            width: 5px;
+            height: 5px;
+            animation: float-particle 7s ease-in-out infinite 0.5s;
+        }
+        
+        .particle:nth-child(4) {
+            top: 65%;
+            left: 80%;
+            width: 3px;
+            height: 3px;
+            animation: float-particle 9s ease-in-out infinite 1.5s;
+        }
+        
+        @keyframes float-particle {
+            0% { transform: translate(0, 0); opacity: 0.2; }
+            50% { transform: translate(10px, 10px); opacity: 0.7; }
+            100% { transform: translate(0, 0); opacity: 0.2; }
+        }
+        
+        .dylan-logo-small {
+            width: 30px;
+            height: 30px;
+            filter: drop-shadow(0 0 5px var(--accent));
+            animation: pulse-small 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-small {
+            0% { filter: drop-shadow(0 0 3px var(--accent)); }
+            100% { filter: drop-shadow(0 0 8px var(--accent)); }
+        }
+        
+        .footer-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(41, 121, 255, 0.2));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-avatar::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+        
+        .footer-avatar .dylan-logo-small {
+            width: 24px;
+            height: 24px;
+            z-index: 2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 229, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(255, 61, 127, 0.08) 0%, transparent 40%);
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: #ffffff;
+        }
+        
+        /* 全局网格背景 */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(42, 49, 74, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(42, 49, 74, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* 三角形装饰元素 */
+        .triangle {
+            position: fixed;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        .triangle-1 {
+            top: 15%;
+            left: 5%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--accent-alt), transparent);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            animation: float 15s ease-in-out infinite alternate;
+        }
+        
+        .triangle-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(45deg, var(--accent), transparent);
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+            animation: float 12s ease-in-out infinite alternate-reverse;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(20px) rotate(-5deg); }
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 页面加载动画 */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .preloader-content {
+            text-align: center;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid transparent;
+            border-top-color: var(--accent);
+            border-bottom-color: var(--accent-alt);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            color: var(--accent);
+            letter-spacing: 3px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        /* 头部样式 */
+        .header {
+            margin-bottom: 80px;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .name-container {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .code-line {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .profile-name {
+            font-size: 72px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        
+        .profile-title {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 18px;
+            color: var(--accent);
+            letter-spacing: 1px;
+            font-weight: 500;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .profile-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+        }
+        
+        .profile-description {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+        
+        .profile-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            background-color: var(--secondary);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+            border-color: var(--accent);
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+        }
+        
+        .profile-image-container {
+            flex: 0 0 300px;
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        .profile-border {
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            opacity: 0.3;
+            z-index: -1;
+            animation: pulse-border 4s infinite alternate;
+        }
+        
+        @keyframes pulse-border {
+            0% { opacity: 0.1; border-color: var(--accent); }
+            100% { opacity: 0.4; border-color: var(--accent-alt); }
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+            background: linear-gradient(125deg, rgba(0, 10, 20, 0.8), rgba(20, 30, 40, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at center, rgba(0, 229, 255, 0.1), transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 1;
+        }
+        
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(0, 229, 255, 0.03) 0px,
+                rgba(0, 229, 255, 0.03) 1px,
+                transparent 1px,
+                transparent 10px
+            );
+            z-index: 2;
+        }
+        
+        .tech-circuit {
+            display: none; /* 隐藏整个电路元素 */
+        }
+        
+        .circuit-line {
+            position: absolute;
+            background-color: var(--accent);
+        }
+        
+        /* 左上横线 */
+        .circuit-line:nth-child(1) {
+            top: 55px;
+            left: 0;
+            width: 90px;
+            height: 1px;
+        }
+        
+        /* 右下横线 */
+        .circuit-line:nth-child(2) {
+            bottom: 55px;
+            right: 0;
+            width: 90px;
+            height: 1px;
+        }
+        
+        .circuit-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--accent);
+        }
+        
+        /* 左上小点 */
+        .circuit-dot:nth-child(3) {
+            top: 55px;
+            left: 90px;
+        }
+        
+        /* 方形框右侧小点 */
+        .circuit-dot:nth-child(4) {
+            top: 100px;
+            right: 45px;
+        }
+        
+        /* 方形框下方小点 */
+        .circuit-dot:nth-child(5) {
+            bottom: 45px;
+            left: 100px;
+        }
+        
+        /* 右下小点 */
+        .circuit-dot:nth-child(6) {
+            bottom: 55px;
+            right: 90px;
+        }
+        
+        .logo-frame {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 0;
+            z-index: 2;
+        }
+        
+        .logo-corner {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-color: var(--accent);
+            opacity: 0.8;
+        }
+        
+        .logo-corner:nth-child(1) {
+            top: 0;
+            left: 0;
+            border-top: 2px solid;
+            border-left: 2px solid;
+        }
+        
+        .logo-corner:nth-child(2) {
+            top: 0;
+            right: 0;
+            border-top: 2px solid;
+            border-right: 2px solid;
+        }
+        
+        .logo-corner:nth-child(3) {
+            bottom: 0;
+            left: 0;
+            border-bottom: 2px solid;
+            border-left: 2px solid;
+        }
+        
+        .logo-corner:nth-child(4) {
+            bottom: 0;
+            right: 0;
+            border-bottom: 2px solid;
+            border-right: 2px solid;
+        }
+        
+        .tech-data {
+            position: absolute;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            color: var(--accent);
+            font-size: 12px;
+            z-index: 3;
+            opacity: 0.7;
+        }
+        
+        .tech-data {
+            bottom: 20px;
+            left: 20px;
+        }
+        
+        .tech-data:nth-child(2) {
+            bottom: 20px;
+            left: 20px;
+        }
+        
+        .logo-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+        
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation: float-particle 6s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(2) {
+            top: 70%;
+            left: 25%;
+            width: 3px;
+            height: 3px;
+            animation: float-particle 8s ease-in-out infinite 1s;
+        }
+        
+        .particle:nth-child(3) {
+            top: 30%;
+            left: 75%;
+            width: 5px;
+            height: 5px;
+            animation: float-particle 7s ease-in-out infinite 0.5s;
+        }
+        
+        .particle:nth-child(4) {
+            top: 65%;
+            left: 80%;
+            width: 3px;
+            height: 3px;
+            animation: float-particle 9s ease-in-out infinite 1.5s;
+        }
+        
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        
+        .scan-effect {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            top: 0;
+            left: 0;
+            animation: scan 3s linear infinite;
+            opacity: 0.5;
+        }
+        
+        /* 导航栏 */
+        .nav-container {
+            margin-top: 40px;
+            padding: 15px;
+            background-color: var(--secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow-x: auto;
+            padding: 5px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-tab {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        
+        .nav-tab:hover, .nav-tab.active {
+            color: var(--text);
+            background-color: rgba(0, 229, 255, 0.1);
+        }
+        
+        .nav-tab.active {
+            color: var(--accent);
+        }
+        
+        .timestamp {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            color: var(--text-muted);
+            white-space: nowrap;
+            padding-left: 15px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+            }
+            
+            .profile-name {
+                font-size: 48px;
+            }
+            
+            .profile-image-container {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
+                align-self: center;
+            }
+            
+            .profile-image {
+                height: 300px;
+            }
+            
+            .nav-container {
+                overflow-x: auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 装饰元素 -->
+    <div class="grid-background"></div>
+    <div class="triangle triangle-1"></div>
+    <div class="triangle triangle-2"></div>
+    
+    <!-- 加载动画 -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="loader"></div>
+            <p class="loading-text">正在加载</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="profile">
+                <div class="profile-info">
+                    <div class="name-container">
+                        <div class="code-line">// 欢迎访问我的个人简历</div>
+                        <h1 class="profile-name">杨琦</h1>
+                        <h2 class="profile-title">产品设计师</h2>
+                    </div>
+                    
+                    <p class="profile-description">我是一名专注于创造优秀用户体验的产品设计师，拥有10年专业设计经验。擅长产品造型设计、界面设计，对AIGC领域有浓厚兴趣。</p>
+                    
+                    <div class="profile-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>17608007620</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>myangqi@163.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-link"></i>
+                            <span><a href="https://www.figma.com/design/dUcFACbScN8wTfTISqBV6i/UI%E8%AE%BE%E8%AE%A1%E5%B8%88%E6%9D%A8%E7%90%A6-%E8%AE%BE%E8%AE%A1%E4%BD%9C%E5%93%81%E9%9B%86?node-id=0-1&t=Tan3Inl5EqtB4jPw-1">作品集链接</a></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-image-container">
+                    <div class="profile-border"></div>
+                    <div class="profile-image">
+                        <div class="tech-data">DESIGNER.PROFILE</div>
+                        <div class="logo-frame">
+                            <div class="logo-corner"></div>
+                            <div class="logo-corner"></div>
+                            <div class="logo-corner"></div>
+                            <div class="logo-corner"></div>
+                        </div>
+                        <div class="logo-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                        <svg class="dylan-logo" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M63.0761 30.3896H62.9403H58.2558C51.9401 30.3896 46.8198 35.5087 46.8198 41.8239V76.5354H63.1537C72.2746 76.5354 79.8346 69.2409 79.9022 60.1216C79.9704 50.93 72.5386 43.4574 63.3612 43.4574H61.199C60.6631 43.4574 60.1891 43.8056 60.0294 44.317L58.2558 49.9913H63.1966C68.6839 49.9913 73.2746 54.3395 73.3665 59.8253C73.4601 65.4292 68.9447 70.0015 63.3612 70.0015H53.3547V41.8239C53.3547 39.1175 55.5492 36.9235 58.2558 36.9235H62.9403H63.1127C75.8665 36.9235 86.395 47.1628 86.4394 59.9147C86.4835 72.6949 76.1349 83.0693 63.363 83.0693L40.2922 83.0764V41.7825H40.2859C40.2955 37.455 41.8347 33.4863 44.3929 30.3896H36.5786C34.7737 33.8034 33.75 37.6937 33.75 41.8239H33.7574V89.6104L63.3596 89.6032C79.7182 89.6032 92.9792 76.3396 92.9708 59.9813C92.9624 43.5893 79.4701 30.3896 63.0761 30.3896" fill="currentColor"/>
+                        </svg>
+                        <div class="scan-effect"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-container">
+                <nav class="nav">
+                    <div class="nav-tabs">
+                        <div class="nav-tab active" data-target="about">关于我</div>
+                        <div class="nav-tab" data-target="experience">工作经历</div>
+                        <div class="nav-tab" data-target="projects">项目经验</div>
+                        <div class="nav-tab" data-target="skills">技能</div>
+                        <div class="nav-tab" data-target="education">教育背景</div>
+                    </div>
+                    <div class="timestamp" id="current-time">2024-05-20 14:30:45</div>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 关于我 -->
+            <section class="section about active" id="about">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon"><i class="fas fa-user-circle"></i></span>
+                        关于我
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="about-content">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="terminal-button red"></span>
+                                <span class="terminal-button yellow"></span>
+                                <span class="terminal-button green"></span>
+                            </div>
+                            <div class="terminal-title">个人简介.sh</div>
+                        </div>
+                        
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$ </span>
+                                <span class="terminal-command">about.show</span>
+                            </div>
+                            <div class="terminal-output">
+                                <p>我是杨琦，一名充满热情的产品设计师，拥有10年专业设计经验。</p>
+                                <p>我擅长产品造型设计、界面设计和用户体验设计，能够将复杂的需求转化为简洁易用的产品。</p>
+                                <p>在工作中，我注重与产品和开发团队的紧密协作，确保设计的可行性和实用性。</p>
+                                <p>目前我对AIGC领域特别感兴趣，希望能将AI与设计结合，创造出更具创新性的产品体验。</p>
+                            </div>
+                            
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$ </span>
+                                <span class="terminal-command">career.objective</span>
+                            </div>
+                            <div class="terminal-output">
+                                <p>寻找产品设计师岗位，希望能够参与AIGC领域的设计工作。</p>
+                                <p>期望在一个鼓励创新、注重用户体验的环境中工作，与优秀的团队一起成长。</p>
+                                <p>目标是通过设计提升产品价值，创造出既美观又实用的数字体验。</p>
+                            </div>
+                            
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$ </span>
+                                <span class="terminal-cursor"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-badges">
+                        <div class="badge-title">技术栈 <span class="badge-subtitle">TECH STACK</span></div>
+                        <div class="badges-container">
+                            <div class="tech-badge">
+                                <i class="fas fa-pencil-ruler"></i>
+                                <span>产品设计</span>
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-sitemap"></i>
+                                <span>交互设计</span>
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-robot"></i>
+                                <span>AIGC</span>
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-palette"></i>
+                                <span>视觉设计</span>
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-layer-group"></i>
+                                <span>设计系统</span>
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-code"></i>
+                                <span>HTML/CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 工作经历 -->
+            <section class="section experience" id="experience">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon"><i class="fas fa-briefcase"></i></span>
+                        工作经历
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="experience-timeline">
+                    <!-- 第一份工作 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        
+                        <div class="timeline-content card">
+                            <div class="card-header">
+                                <div class="company-info">
+                                    <div class="company-logo">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </div>
+                                    <div class="company-details">
+                                        <h3 class="company-name">成都准度科技有限公司</h3>
+                                        <div class="job-meta">
+                                            <span class="job-title">UI设计师兼产品助理</span>
+                                            <span class="job-period">2020.02 - 至今</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-chip">金融司法公证科技领域</div>
+                            </div>
+                            
+                            <div class="card-body">
+                                <div class="responsibilities">
+                                    <h4 class="content-title">
+                                        <i class="fas fa-tasks"></i>
+                                        主要职责
+                                    </h4>
+                                    <ul class="responsibility-list">
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>负责公司在线纠纷解决平台的产品界面设计，包括移动端和PC端的整体视觉风格制定和交互组件开发。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>参与公司多个法律科技项目的产品设计工作，包括在线调解、公证及电子合同等平台的界面与交互设计，提升用户体验。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>主导设计系统建设，确保设计风格一致性，通过标准化设计组件提高团队效率。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>与产品、开发团队紧密协作，进行需求分析和用户研究，推动产品迭代优化。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>熟练运用Cursor、MPC结合Figma，快速产出Figma可编辑原型图以及HTML可交互原型Demo，将原型制作周期缩短45%。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>利用Midjourney、StableDiffusion等AIGC工具，生成设计灵感图和素材，提升设计创新性。</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="achievements">
+                                    <h4 class="content-title">
+                                        <i class="fas fa-trophy"></i>
+                                        主要成就
+                                    </h4>
+                                    <div class="achievement-content">
+                                        <p>主导设计的在线调解平台获得用户满意度显著提升，界面直观性和易用性获得客户好评；开发了公司设计规范库，提高了设计和开发效率。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-tags">
+                                    <div class="project-tag">用户界面设计</div>
+                                    <div class="project-tag">在线调解平台</div>
+                                    <div class="project-tag">设计系统</div>
+                                    <div class="project-tag">电子合同</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 第二份工作 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        
+                        <div class="timeline-content card">
+                            <div class="card-header">
+                                <div class="company-info">
+                                    <div class="company-logo">
+                                        <i class="fas fa-wind"></i>
+                                    </div>
+                                    <div class="company-details">
+                                        <h3 class="company-name">成都风起科技有限公司</h3>
+                                        <div class="job-meta">
+                                            <span class="job-title">UI设计师</span>
+                                            <span class="job-period">2017.11 - 2019.9</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-chip">外包服务领域</div>
+                            </div>
+                            
+                            <div class="card-body">
+                                <div class="responsibilities">
+                                    <h4 class="content-title">
+                                        <i class="fas fa-tasks"></i>
+                                        主要职责
+                                    </h4>
+                                    <ul class="responsibility-list">
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>作为产品设计师，负责多个客户项目的产品外观和交互设计，能够快速适应不同行业和产品需求。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>与客户密切沟通需求，进行多轮设计修改，确保最终交付符合客户期望。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>通过优化用户界面和交互流程，为多个项目提升了用户体验，客户满意度高。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>参与多个行业的设计项目，包括电商、教育、金融等领域，积累了丰富的跨行业设计经验。</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="achievements">
+                                    <h4 class="content-title">
+                                        <i class="fas fa-trophy"></i>
+                                        主要成就
+                                    </h4>
+                                    <div class="achievement-content">
+                                        <p>成功为多个客户完成界面设计项目，客户满意度超过90%；通过用户体验优化，帮助客户产品提升用户留存率平均20%。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-tags">
+                                    <div class="project-tag">界面设计</div>
+                                    <div class="project-tag">客户需求</div>
+                                    <div class="project-tag">用户体验</div>
+                                    <div class="project-tag">跨行业设计</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 第三份工作 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        
+                        <div class="timeline-content card">
+                            <div class="card-header">
+                                <div class="company-info">
+                                    <div class="company-logo">
+                                        <i class="fas fa-wine-bottle"></i>
+                                    </div>
+                                    <div class="company-details">
+                                        <h3 class="company-name">壹玖壹玖酒类直供平台科技股份公司</h3>
+                                        <div class="job-meta">
+                                            <span class="job-title">UI设计师</span>
+                                            <span class="job-period">2015.07 - 2017.08</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-chip">电子商务</div>
+                            </div>
+                            
+                            <div class="card-body">
+                                <div class="responsibilities">
+                                    <h4 class="content-title">
+                                        <i class="fas fa-tasks"></i>
+                                        主要职责
+                                    </h4>
+                                    <ul class="responsibility-list">
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>负责公司电商平台的产品设计，提升了用户界面的视觉吸引力和用户体验。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>参与设计了多个促销活动页面，增加了用户参与度和销售转化率。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>负责多个系统和应用的产品设计，包括快喝和隔壁仓库等App，确保设计的一致性和用户友好性。</p>
+                                        </li>
+                                        <li>
+                                            <div class="list-dot"></div>
+                                            <p>与产品和开发团队紧密合作，确保设计的准确实现和项目的顺利推进。</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="achievements">
+                                    <h4 class="content-title">
+                                        <i class="fas fa-trophy"></i>
+                                        主要成就
+                                    </h4>
+                                    <div class="achievement-content">
+                                        <p>设计的活动页面在多次营销活动中取得良好效果，参与的App改版获得了用户正面反馈，提高了用户留存率和活跃度。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-tags">
+                                    <div class="project-tag">电商设计</div>
+                                    <div class="project-tag">应用设计</div>
+                                    <div class="project-tag">促销活动</div>
+                                    <div class="project-tag">移动应用</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 项目经验 -->
+            <section class="section projects" id="projects">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon"><i class="fas fa-project-diagram"></i></span>
+                        项目经验
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- 项目1: 在线调解项目 -->
+                    <div class="project-card card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="project-title">在线调解平台</h3>
+                            <div class="project-status">
+                                <div class="status-dot active"></div>
+                                <span>已上线</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-body">
+                            <div class="project-description">
+                                <p>为法院和调解机构设计的在线纠纷解决平台，帮助当事人远程参与调解，提高纠纷解决效率。</p>
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-tasks"></i>
+                                        <span>我的贡献</span>
+                                    </div>
+                                    <ul class="detail-list">
+                                        <li>设计整个平台的用户界面，包括PC端和移动端</li>
+                                        <li>构建清晰的用户流程，简化操作步骤</li>
+                                        <li>设计视频会议和在线签署功能界面</li>
+                                        <li>创建案件管理和文件处理系统的交互方式</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>项目成果</span>
+                                    </div>
+                                    <p class="detail-content">平台上线后案件处理时间缩短，用户满意度高，已在多个省市的法院和调解中心投入使用。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="project-tech-stack">
+                                <div class="tech-stack-label">技术栈</div>
+                                <div class="tech-stack-tags">
+                                    <div class="tech-stack-tag">响应式设计</div>
+                                    <div class="tech-stack-tag">交互设计</div>
+                                    <div class="tech-stack-tag">视频会议</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 项目2: 公证项目 -->
+                    <div class="project-card card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <h3 class="project-title">公证服务平台</h3>
+                            <div class="project-status">
+                                <div class="status-dot active"></div>
+                                <span>已上线</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-body">
+                            <div class="project-description">
+                                <p>为公证处提供的在线公证服务系统，实现公证申请、材料提交、在线审核和公证书生成的全流程数字化。</p>
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-tasks"></i>
+                                        <span>我的贡献</span>
+                                    </div>
+                                    <ul class="detail-list">
+                                        <li>设计系统的整体界面和视觉风格</li>
+                                        <li>优化用户申请流程，降低操作复杂度</li>
+                                        <li>设计材料上传和审核流程的界面</li>
+                                        <li>构建后台管理系统的界面和交互方式</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>项目成果</span>
+                                    </div>
+                                    <p class="detail-content">系统上线后，公证处工作效率提升，用户申请公证的时间和成本显著降低，获得了公证处和用户的好评。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="project-tech-stack">
+                                <div class="tech-stack-label">技术栈</div>
+                                <div class="tech-stack-tags">
+                                    <div class="tech-stack-tag">用户体验</div>
+                                    <div class="tech-stack-tag">后台设计</div>
+                                    <div class="tech-stack-tag">工作流</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 项目3: 重庆银行演示项目 -->
+                    <div class="project-card card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h3 class="project-title">重庆银行演示项目</h3>
+                            <div class="project-status">
+                                <div class="status-dot completed"></div>
+                                <span>已完成</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-body">
+                            <div class="project-description">
+                                <p>为重庆银行设计的金融科技产品演示系统，展示银行在数字化转型中的创新产品和服务。</p>
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-tasks"></i>
+                                        <span>我的贡献</span>
+                                    </div>
+                                    <ul class="detail-list">
+                                        <li>设计具有科技感的界面风格</li>
+                                        <li>创建数据可视化展示方案</li>
+                                        <li>设计产品演示流程和交互方式</li>
+                                        <li>制作动效和过渡效果</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>项目成果</span>
+                                    </div>
+                                    <p class="detail-content">项目获得客户高度评价，成功用于银行内部和对外展示，帮助银行展示了金融科技创新能力。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="project-tech-stack">
+                                <div class="tech-stack-label">技术栈</div>
+                                <div class="tech-stack-tags">
+                                    <div class="tech-stack-tag">数据可视化</div>
+                                    <div class="tech-stack-tag">动效设计</div>
+                                    <div class="tech-stack-tag">展示系统</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 项目4: 电商项目 -->
+                    <div class="project-card card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3 class="project-title">镇远商城</h3>
+                            <div class="project-status">
+                                <div class="status-dot active"></div>
+                                <span>已上线</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-body">
+                            <div class="project-description">
+                                <p>为镇远古镇打造的特色旅游电商平台，整合当地特产、美食、住宿、景点门票等资源，为游客提供一站式旅游服务。</p>
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-tasks"></i>
+                                        <span>我的贡献</span>
+                                    </div>
+                                    <ul class="detail-list">
+                                        <li>设计移动端App和小程序界面</li>
+                                        <li>优化旅游产品展示和预订流程</li>
+                                        <li>设计景点导览和美食推荐功能</li>
+                                        <li>建立符合当地特色的视觉风格系统</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>项目成果</span>
+                                    </div>
+                                    <p class="detail-content">平台上线后当地特产销量增长35%，旅游服务预订量提升50%，有效带动了镇远古镇的旅游经济发展。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="project-tech-stack">
+                                <div class="tech-stack-label">技术栈</div>
+                                <div class="tech-stack-tags">
+                                    <div class="tech-stack-tag">旅游电商</div>
+                                    <div class="tech-stack-tag">LBS服务</div>
+                                    <div class="tech-stack-tag">小程序</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 项目5: 智慧燃气项目 -->
+                    <div class="project-card card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3 class="project-title">智慧燃气管理系统</h3>
+                            <div class="project-status">
+                                <div class="status-dot completed"></div>
+                                <span>已完成</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-body">
+                            <div class="project-description">
+                                <p>为燃气公司设计的智能管理系统，整合了用户管理、安全监控、燃气表读数和故障预警等功能，实现燃气业务智能化管理。</p>
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-tasks"></i>
+                                        <span>我的贡献</span>
+                                    </div>
+                                    <ul class="detail-list">
+                                        <li>设计系统监控大屏和数据可视化界面</li>
+                                        <li>优化管理后台操作流程</li>
+                                        <li>设计移动端巡检和报修应用</li>
+                                        <li>构建用户端自助服务界面</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-detail-group">
+                                    <div class="detail-label">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>项目成果</span>
+                                    </div>
+                                    <p class="detail-content">系统实施后故障处理时间减少40%，客服工作效率提升30%，安全隐患预警准确率达95%，获得行业示范项目称号。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="project-tech-stack">
+                                <div class="tech-stack-label">技术栈</div>
+                                <div class="tech-stack-tags">
+                                    <div class="tech-stack-tag">物联网</div>
+                                    <div class="tech-stack-tag">数据可视化</div>
+                                    <div class="tech-stack-tag">管理系统</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 技能部分 -->
+            <section class="section skills" id="skills">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon"><i class="fas fa-tools"></i></span>
+                        专业技能
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="skills-container">
+                    <div class="skills-overview">
+                        <div class="console-header">
+                            <span class="console-title">Skills.overview.js</span>
+                            <div class="console-controls">
+                                <span class="console-control minimize">—</span>
+                                <span class="console-control maximize">+</span>
+                                <span class="console-control close">×</span>
+                            </div>
+                        </div>
+                        <div class="console-body">
+                            <div class="code-line"><span class="code-keyword">const</span> <span class="code-variable">designer</span> = {</div>
+                            <div class="code-line code-indent-1"><span class="code-property">name</span>: <span class="code-string">"杨琦"</span>,</div>
+                            <div class="code-line code-indent-1"><span class="code-property">role</span>: <span class="code-string">"产品设计师"</span>,</div>
+                            <div class="code-line code-indent-1"><span class="code-property">experience</span>: <span class="code-number">10</span>,</div>
+                            <div class="code-line code-indent-1"><span class="code-property">expertise</span>: [</div>
+                            <div class="code-line code-indent-2"><span class="code-string">"产品造型设计"</span>,</div>
+                            <div class="code-line code-indent-2"><span class="code-string">"交互设计"</span>,</div>
+                            <div class="code-line code-indent-2"><span class="code-string">"设计系统"</span>,</div>
+                            <div class="code-line code-indent-2"><span class="code-string">"AIGC应用"</span></div>
+                            <div class="code-line code-indent-1">],</div>
+                            <div class="code-line code-indent-1"><span class="code-property">languages</span>: [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>]</div>
+                            <div class="code-line">};</div>
+                            <div class="code-line"><span class="code-comment">// 继续向下滚动查看详细技能...</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-details">
+                        <h3 class="skills-group-title">设计工具 <span class="skills-subtitle">DESIGN TOOLS</span></h3>
+                        <div class="skills-group">
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">Figma</span>
+                                    <span class="skill-level">精通</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 95%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">Adobe XD</span>
+                                    <span class="skill-level">精通</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 90%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">Sketch</span>
+                                    <span class="skill-level">熟练</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 85%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">Photoshop</span>
+                                    <span class="skill-level">熟练</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 80%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="skills-group-title">前端技术 <span class="skills-subtitle">FRONTEND</span></h3>
+                        <div class="skills-group">
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">HTML/CSS</span>
+                                    <span class="skill-level">基础</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 65%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-level">基础</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 60%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">React</span>
+                                    <span class="skill-level">基础</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 55%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="skills-group-title">AIGC技能 <span class="skills-subtitle">AI GENERATION</span></h3>
+                        <div class="skills-group">
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">Midjourney</span>
+                                    <span class="skill-level">精通</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 90%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">Stable Diffusion</span>
+                                    <span class="skill-level">熟练</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 85%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info">
+                                    <span class="skill-name">AI辅助设计工具</span>
+                                    <span class="skill-level">熟练</span>
+                                </div>
+                                <div class="skill-bar-wrapper">
+                                    <div class="skill-bar" style="width: 80%">
+                                        <div class="skill-bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="skills-group-title">其他专业技能 <span class="skills-subtitle">PROFESSIONAL</span></h3>
+                        <div class="skills-group">
+                            <div class="skill-pills">
+                                <div class="skill-pill">产品规划</div>
+                                <div class="skill-pill">用户研究</div>
+                                <div class="skill-pill">设计系统</div>
+                                <div class="skill-pill">原型设计</div>
+                                <div class="skill-pill">交互设计</div>
+                                <div class="skill-pill">用户体验</div>
+                                <div class="skill-pill">视觉设计</div>
+                                <div class="skill-pill">项目管理</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 教育背景 -->
+            <section class="section education" id="education">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon"><i class="fas fa-graduation-cap"></i></span>
+                        教育背景
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="education-container">
+                    <div class="edu-card card">
+                        <div class="edu-header">
+                            <div class="school-logo">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="school-info">
+                                <h3 class="school-name">四川文化产业职业学院</h3>
+                                <div class="edu-meta">
+                                    <span class="edu-degree">大专</span>
+                                    <span class="edu-major">产品造型设计</span>
+                                    <span class="edu-period">2011.09 - 2014.06</span>
+                                </div>
+                            </div>
+                            <div class="edu-status">
+                                <span class="edu-badge">已毕业</span>
+                            </div>
+                        </div>
+                        
+                        <div class="edu-body">
+                            <div class="edu-details">
+                                <h4 class="edu-section-title">
+                                    <i class="fas fa-book"></i>
+                                    主修课程
+                                </h4>
+                                <div class="course-tags">
+                                    <div class="course-tag">产品设计原理</div>
+                                    <div class="course-tag">人机工程学</div>
+                                    <div class="course-tag">工业设计</div>
+                                    <div class="course-tag">视觉传达</div>
+                                    <div class="course-tag">材料与工艺</div>
+                                    <div class="course-tag">三维建模</div>
+                                </div>
+                            </div>
+                            
+                            <div class="edu-description">
+                                <p>系统学习了产品造型设计的理论知识与实践技能，培养了设计思维和创新能力，为从事产品设计工作奠定了良好基础。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-avatar">
+                        <svg class="dylan-logo-small" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M63.0761 30.3896H62.9403H58.2558C51.9401 30.3896 46.8198 35.5087 46.8198 41.8239V76.5354H63.1537C72.2746 76.5354 79.8346 69.2409 79.9022 60.1216C79.9704 50.93 72.5386 43.4574 63.3612 43.4574H61.199C60.6631 43.4574 60.1891 43.8056 60.0294 44.317L58.2558 49.9913H63.1966C68.6839 49.9913 73.2746 54.3395 73.3665 59.8253C73.4601 65.4292 68.9447 70.0015 63.3612 70.0015H53.3547V41.8239C53.3547 39.1175 55.5492 36.9235 58.2558 36.9235H62.9403H63.1127C75.8665 36.9235 86.395 47.1628 86.4394 59.9147C86.4835 72.6949 76.1349 83.0693 63.363 83.0693L40.2922 83.0764V41.7825H40.2859C40.2955 37.455 41.8347 33.4863 44.3929 30.3896H36.5786C34.7737 33.8034 33.75 37.6937 33.75 41.8239H33.7574V89.6104L63.3596 89.6032C79.7182 89.6032 92.9792 76.3396 92.9708 59.9813C92.9624 43.5893 79.4701 30.3896 63.0761 30.3896" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="footer-text">
+                        <p class="footer-name">杨琦</p>
+                        <p class="footer-role">产品设计师</p>
+                    </div>
+                </div>
+                
+                <div class="footer-copyright">
+                    <p>© 2024 杨琦 · 个人简历</p>
+                    <p class="build-info">Build with <span class="heart">♥</span> by Cursor</p>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+            /* 主要内容区域样式 */
+            .main-content {
+                padding-bottom: 80px;
+            }
+            
+            /* 通用部分样式 */
+            .section {
+                margin-bottom: 100px;
+                display: none;
+            }
+            
+            .section.active {
+                display: block;
+                animation: fadeIn 0.6s ease-in-out;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .section-header {
+                margin-bottom: 40px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 28px;
+                font-weight: 700;
+                color: var(--text);
+                margin: 0;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                white-space: nowrap;
+            }
+            
+            .section-icon {
+                color: var(--accent);
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .section-line {
+                height: 1px;
+                background: linear-gradient(to right, var(--border), transparent);
+                flex: 1;
+                margin-left: 20px;
+            }
+            
+            /* 卡片通用样式 */
+            .card {
+                background-color: var(--secondary);
+                border-radius: 8px;
+                border: 1px solid var(--border);
+                box-shadow: var(--shadow);
+                overflow: hidden;
+                transition: var(--transition);
+            }
+            
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+                border-color: var(--accent);
+            }
+            
+            /* 关于我部分样式 */
+            .about-content {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .terminal-window {
+                background-color: #1a1a1a;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: var(--shadow);
+                font-family: 'SF Mono', 'Fira Code', monospace;
+            }
+            
+            .terminal-header {
+                background-color: #323232;
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .terminal-buttons {
+                display: flex;
+                gap: 8px;
+                margin-right: 15px;
+            }
+            
+            .terminal-button {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+            }
+            
+            .terminal-button.red { background-color: #ff5f56; }
+            .terminal-button.yellow { background-color: #ffbd2e; }
+            .terminal-button.green { background-color: #27c93f; }
+            
+            .terminal-title {
+                color: #ddd;
+                font-size: 14px;
+            }
+            
+            .terminal-body {
+                padding: 20px;
+                color: #f8f8f8;
+                font-size: 15px;
+                line-height: 1.6;
+            }
+            
+            .terminal-line {
+                display: flex;
+                margin-bottom: 15px;
+            }
+            
+            .terminal-prompt {
+                color: var(--accent);
+                margin-right: 8px;
+            }
+            
+            .terminal-command {
+                color: #f8f8f8;
+            }
+            
+            .terminal-output {
+                color: #b4b4b4;
+                margin-bottom: 25px;
+                padding-left: 25px;
+            }
+            
+            .terminal-output p {
+                margin-bottom: 8px;
+            }
+            
+            .terminal-cursor {
+                display: inline-block;
+                width: 10px;
+                height: 18px;
+                background-color: var(--accent);
+                animation: blink 1s step-end infinite;
+                vertical-align: middle;
+            }
+            
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+            
+            .tech-badges {
+                margin-top: 20px;
+            }
+            
+            .badge-title {
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--text);
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .badge-subtitle {
+                font-size: 14px;
+                font-family: 'SF Mono', 'Fira Code', monospace;
+                color: var(--accent);
+                opacity: 0.8;
+            }
+            
+            .badges-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .tech-badge {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 15px;
+                background-color: var(--secondary);
+                border: 1px solid var(--border);
+                border-radius: 5px;
+                box-shadow: var(--shadow);
+                transition: var(--transition);
+            }
+            
+            .tech-badge:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+                border-color: var(--accent);
+            }
+            
+            .tech-badge i {
+                color: var(--accent);
+                font-size: 18px;
+            }
+            
+            .tech-badge span {
+                font-size: 15px;
+                font-weight: 500;
+            }
+            
+            /* 工作经历样式 */
+            .experience-timeline {
+                position: relative;
+                margin-left: 30px;
+            }
+            
+            .timeline-item {
+                position: relative;
+                margin-bottom: 50px;
+            }
+            
+            .timeline-marker {
+                position: absolute;
+                left: -30px;
+                top: 0;
+                bottom: 0;
+                width: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .marker-dot {
+                width: 20px;
+                height: 20px;
+                background-color: var(--accent);
+                border-radius: 50%;
+                box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+                z-index: 1;
+            }
+            
+            .marker-line {
+                width: 2px;
+                flex-grow: 1;
+                background: linear-gradient(to bottom, var(--accent), rgba(0, 229, 255, 0.1));
+                margin-top: 5px;
+            }
+            
+            .timeline-item:last-child .marker-line {
+                display: none;
+            }
+            
+            .card-header {
+                padding: 20px;
+                border-bottom: 1px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            
+            .company-info {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .company-logo {
+                width: 50px;
+                height: 50px;
+                border-radius: 8px;
+                background: linear-gradient(135deg, var(--accent), rgba(0, 229, 255, 0.2));
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 24px;
+                box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+            }
+            
+            .company-details {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .company-name {
+                font-size: 20px;
+                font-weight: 700;
+                margin: 0 0 5px 0;
+            }
+            
+            .job-meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                color: var(--text-muted);
+                font-size: 14px;
+            }
+            
+            .job-title {
+                position: relative;
+                padding-right: 15px;
+            }
+            
+            .job-title::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: var(--text-muted);
+            }
+            
+            .tech-chip {
+                padding: 5px 12px;
+                background-color: rgba(0, 229, 255, 0.1);
+                border-radius: 30px;
+                font-size: 12px;
+                color: var(--accent);
+                font-weight: 500;
+                white-space: nowrap;
+            }
+            
+            .card-body {
+                padding: 20px;
+            }
+            
+            .content-title {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--text);
+                margin: 0 0 15px 0;
+            }
+            
+            .content-title i {
+                color: var(--accent);
+            }
+            
+            .responsibility-list {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 25px 0;
+            }
+            
+            .responsibility-list li {
+                display: flex;
+                gap: 12px;
+                margin-bottom: 10px;
+            }
+            
+            .list-dot {
+                width: 8px;
+                height: 8px;
+                background-color: var(--accent);
+                border-radius: 50%;
+                margin-top: 8px;
+                flex-shrink: 0;
+            }
+            
+            .responsibility-list li p {
+                margin: 0;
+                color: var(--text-muted);
+                font-size: 15px;
+                line-height: 1.6;
+            }
+            
+            .achievements {
+                margin-bottom: 25px;
+                padding: 15px;
+                border-radius: 8px;
+                background-color: rgba(0, 229, 255, 0.05);
+                border-left: 3px solid var(--accent);
+            }
+            
+            .achievement-content {
+                color: var(--text-muted);
+                font-size: 15px;
+                line-height: 1.6;
+            }
+            
+            .project-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .project-tag {
+                padding: 5px 12px;
+                background-color: rgba(255, 61, 127, 0.1);
+                border-radius: 5px;
+                font-size: 13px;
+                color: var(--accent-alt);
+                font-weight: 500;
+            }
+            
+            /* 响应式设计补充 */
+            @media (max-width: 768px) {
+                .company-info {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+                }
+                
+                .card-header {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+                
+                .tech-chip {
+                    align-self: flex-start;
+                }
+            }
+            
+            /* 项目经验样式 */
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 30px;
+            }
+            
+            .project-card {
+                display: flex;
+                flex-direction: column;
+                background-color: var(--secondary);
+            }
+            
+            .project-header {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                padding: 20px;
+                border-bottom: 1px solid var(--border);
+                position: relative;
+            }
+            
+            .project-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                background: linear-gradient(135deg, var(--accent-alt), rgba(255, 61, 127, 0.2));
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 15px;
+                flex-shrink: 0;
+            }
+            
+            .project-icon i {
+                color: #fff;
+                font-size: 20px;
+            }
+            
+            .project-title {
+                font-size: 18px;
+                font-weight: 700;
+                margin: 0;
+                flex: 1;
+            }
+            
+            .project-status {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 12px;
+                color: var(--text-muted);
+                font-weight: 500;
+                margin-left: auto;
+                margin-top: 10px;
+            }
+            
+            .status-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: var(--text-muted);
+            }
+            
+            .status-dot.active {
+                background-color: var(--accent);
+                box-shadow: 0 0 5px var(--accent);
+            }
+            
+            .status-dot.completed {
+                background-color: var(--accent-alt);
+                box-shadow: 0 0 5px var(--accent-alt);
+            }
+            
+            .project-body {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                flex: 1;
+            }
+            
+            .project-description {
+                color: var(--text-muted);
+                font-size: 15px;
+                line-height: 1.6;
+            }
+            
+            .project-details {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .project-detail-group {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .detail-label {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--text);
+            }
+            
+            .detail-label i {
+                color: var(--accent-alt);
+                font-size: 14px;
+            }
+            
+            .detail-list {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .detail-list li {
+                position: relative;
+                padding-left: 20px;
+                margin-bottom: 8px;
+                color: var(--text-muted);
+                font-size: 14px;
+            }
+            
+            .detail-list li::before {
+                content: "→";
+                position: absolute;
+                left: 0;
+                color: var(--accent-alt);
+            }
+            
+            .detail-content {
+                color: var(--text-muted);
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 0;
+            }
+            
+            .project-tech-stack {
+                margin-top: auto;
+                padding-top: 15px;
+                border-top: 1px dashed var(--border);
+            }
+            
+            .tech-stack-label {
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--text-muted);
+                margin-bottom: 10px;
+            }
+            
+            .tech-stack-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .tech-stack-tag {
+                padding: 4px 10px;
+                background-color: rgba(0, 229, 255, 0.08);
+                border: 1px solid rgba(0, 229, 255, 0.15);
+                border-radius: 4px;
+                font-size: 12px;
+                color: var(--accent);
+                font-weight: 500;
+            }
+            
+            @media (max-width: 768px) {
+                .projects-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            
+            /* 技能部分样式 */
+            .skills-container {
+                display: grid;
+                grid-template-columns: 1fr 1.5fr;
+                gap: 40px;
+            }
+            
+            .skills-overview {
+                background-color: #1e1e1e;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: var(--shadow);
+                border: 1px solid #333;
+            }
+            
+            .console-header {
+                background-color: #333;
+                padding: 8px 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #444;
+            }
+            
+            .console-title {
+                color: #eee;
+                font-family: 'SF Mono', 'Fira Code', monospace;
+                font-size: 13px;
+            }
+            
+            .console-controls {
+                display: flex;
+                gap: 10px;
+            }
+            
+            .console-control {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 10px;
+                color: #666;
+                cursor: pointer;
+            }
+            
+            .console-control.close { background-color: #ff5f56; }
+            .console-control.minimize { background-color: #ffbd2e; }
+            .console-control.maximize { background-color: #27c93f; }
+            
+            .console-body {
+                padding: 20px;
+                font-family: 'SF Mono', 'Fira Code', monospace;
+                font-size: 14px;
+                line-height: 1.6;
+                max-height: 400px;
+                overflow-y: auto;
+            }
+            
+            .code-line {
+                white-space: pre;
+                margin-bottom: 5px;
+            }
+            
+            .code-indent-1 { padding-left: 20px; }
+            .code-indent-2 { padding-left: 40px; }
+            
+            .code-keyword { color: #569cd6; }
+            .code-variable { color: #9cdcfe; }
+            .code-property { color: #9cdcfe; }
+            .code-string { color: #ce9178; }
+            .code-number { color: #b5cea8; }
+            .code-comment { color: #6a9955; }
+            
+            .skills-details {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .skills-group-title {
+                font-size: 18px;
+                font-weight: 700;
+                color: var(--text);
+                margin: 0 0 15px 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .skills-subtitle {
+                font-size: 12px;
+                font-family: 'SF Mono', 'Fira Code', monospace;
+                color: var(--accent);
+                opacity: 0.7;
+                font-weight: 400;
+                text-transform: uppercase;
+            }
+            
+            .skills-group {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .skill-bar-container {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .skill-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .skill-name {
+                font-family: 'SF Mono', 'Fira Code', monospace;
+                font-size: 14px;
+                color: var(--text);
+            }
+            
+            .skill-level {
+                font-size: 12px;
+                color: var(--accent);
+                background-color: rgba(0, 229, 255, 0.1);
+                padding: 2px 8px;
+                border-radius: 10px;
+            }
+            
+            .skill-bar-wrapper {
+                height: 6px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 3px;
+                overflow: hidden;
+            }
+            
+            .skill-bar {
+                height: 100%;
+                background: linear-gradient(to right, var(--accent), var(--accent-alt));
+                border-radius: 3px;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .skill-bar-fill {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(90deg, 
+                    rgba(255, 255, 255, 0) 0%, 
+                    rgba(255, 255, 255, 0.3) 50%, 
+                    rgba(255, 255, 255, 0) 100%);
+                animation: shine 2s infinite linear;
+            }
+            
+            @keyframes shine {
+                from { transform: translateX(-100%); }
+                to { transform: translateX(100%); }
+            }
+            
+            .skill-pills {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .skill-pill {
+                padding: 8px 15px;
+                background-color: var(--secondary);
+                border: 1px solid var(--border);
+                border-radius: 30px;
+                font-size: 14px;
+                color: var(--text);
+                transition: var(--transition);
+            }
+            
+            .skill-pill:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+                border-color: var(--accent);
+                color: var(--accent);
+            }
+            
+            @media (max-width: 992px) {
+                .skills-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+            
+            /* 教育背景样式 */
+            .education-container {
+                max-width: 800px;
+            }
+            
+            .edu-card {
+                background-color: var(--secondary);
+            }
+            
+            .edu-header {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                padding: 25px;
+                border-bottom: 1px solid var(--border);
+                position: relative;
+            }
+            
+            .school-logo {
+                width: 60px;
+                height: 60px;
+                border-radius: 8px;
+                background: linear-gradient(135deg, #2979ff, rgba(0, 229, 255, 0.3));
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 28px;
+                box-shadow: 0 5px 15px rgba(0, 150, 255, 0.3);
+                margin-right: 20px;
+                flex-shrink: 0;
+            }
+            
+            .school-info {
+                flex: 1;
+            }
+            
+            .school-name {
+                font-size: 22px;
+                font-weight: 700;
+                margin: 0 0 10px 0;
+                color: var(--text);
+            }
+            
+            .edu-meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                color: var(--text-muted);
+                font-size: 14px;
+            }
+            
+            .edu-degree, .edu-major {
+                position: relative;
+                padding-right: 15px;
+            }
+            
+            .edu-degree::after, .edu-major::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: var(--text-muted);
+            }
+            
+            .edu-status {
+                margin-left: auto;
+                margin-top: 15px;
+            }
+            
+            .edu-badge {
+                padding: 5px 12px;
+                background-color: rgba(41, 121, 255, 0.1);
+                border-radius: 30px;
+                font-size: 12px;
+                color: #2979ff;
+                font-weight: 500;
+                white-space: nowrap;
+            }
+            
+            .edu-body {
+                padding: 25px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .edu-section-title {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--text);
+                margin: 0 0 15px 0;
+            }
+            
+            .edu-section-title i {
+                color: #2979ff;
+            }
+            
+            .course-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .course-tag {
+                padding: 6px 12px;
+                background-color: rgba(41, 121, 255, 0.08);
+                border: 1px solid rgba(41, 121, 255, 0.2);
+                border-radius: 5px;
+                font-size: 13px;
+                color: #2979ff;
+                font-weight: 500;
+            }
+            
+            .edu-description {
+                color: var(--text-muted);
+                font-size: 15px;
+                line-height: 1.6;
+            }
+            
+            /* 页脚样式 */
+            .footer {
+                margin-top: 80px;
+                padding: 40px 0;
+                border-top: 1px solid var(--border);
+            }
+            
+            .footer-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            
+            .footer-info {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .footer-avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 5px;
+                background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-weight: 700;
+                font-size: 16px;
+            }
+            
+            .footer-text {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .footer-name {
+                font-weight: 600;
+                margin: 0;
+                font-size: 16px;
+            }
+            
+            .footer-role {
+                color: var(--text-muted);
+                margin: 0;
+                font-size: 14px;
+            }
+            
+            .footer-copyright {
+                color: var(--text-muted);
+                font-size: 14px;
+                text-align: right;
+            }
+            
+            .footer-copyright p {
+                margin: 0;
+            }
+            
+            .build-info {
+                font-size: 12px;
+            }
+            
+            .heart {
+                color: var(--accent-alt);
+                animation: pulse 1.5s ease infinite;
+            }
+            
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+            
+            @media (max-width: 600px) {
+                .footer-content {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 20px;
+                }
+                
+                .footer-copyright {
+                    text-align: left;
+                }
+            }
+        </style>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 隐藏加载动画
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.classList.add('fade-out');
+            }, 1500);
+            
+            // 导航切换
+            const navTabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('.section');
+            
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // 移除所有活动状态
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    // 添加当前活动状态
+                    tab.classList.add('active');
+                    const targetId = tab.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+            
+            // 更新时间戳
+            function updateTimestamp() {
+                const now = new Date();
+                const options = {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                };
+                const formattedDate = now.toLocaleString('zh-CN', options)
+                    .replace(/\//g, '-');
+                document.getElementById('current-time').textContent = formattedDate;
+            }
+            
+            updateTimestamp();
+            setInterval(updateTimestamp, 1000);
+            
+            // 添加卡片悬停效果
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left; // 鼠标在卡片内的X位置
+                    const y = e.clientY - rect.top;  // 鼠标在卡片内的Y位置
+                    
+                    // 计算旋转角度（较小值以使效果微妙）
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 30 * -1; // 除以更大的数使旋转更微妙
+                    const rotateY = (x - centerX) / 30;
+                    
+                    // 应用变换
+                    card.style.transform = `
+                        perspective(1000px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        translateZ(10px)
+                    `;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    // 恢复原始状态
+                    card.style.transform = '';
+                    setTimeout(() => {
+                        card.style.transition = '';
+                    }, 300);
+                });
+                
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = 'all 0.1s ease';
+                });
+            });
+            
+            // 初始化时显示第一个部分（关于我）
+            document.getElementById('about').classList.add('active');
+            navTabs[0].classList.add('active');
+        });
+    </script>
+</body>
+</html> 
