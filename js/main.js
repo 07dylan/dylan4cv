@@ -58,12 +58,47 @@ document.addEventListener('DOMContentLoaded', function() {
             const rotateY = (x - centerX) / 30;
             
             // 应用变换
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
         });
         
         card.addEventListener('mouseleave', () => {
             // 重置变换
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            setTimeout(() => {
+                card.style.transition = '';
+            }, 300);
+        });
+        
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'all 0.1s ease';
         });
     });
+    
+    // 添加粒子效果
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach((particle, index) => {
+        // 设置随机初始位置
+        const randomDelay = Math.random() * 2; // 0-2秒的随机延迟
+        particle.style.animationDelay = `${randomDelay}s`;
+    });
+    
+    // 为终端窗口添加打字效果
+    const terminals = document.querySelectorAll('.terminal-command');
+    terminals.forEach(terminal => {
+        const text = terminal.textContent;
+        terminal.textContent = '';
+        let i = 0;
+        const typeInterval = setInterval(() => {
+            if (i < text.length) {
+                terminal.textContent += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typeInterval);
+            }
+        }, 50);
+    });
+    
+    // 确保初始时显示第一个部分（关于我）
+    document.getElementById('about').classList.add('active');
+    navTabs[0].classList.add('active');
 }); 
