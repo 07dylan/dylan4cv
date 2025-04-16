@@ -1,0 +1,54 @@
+:root {
+    --primary: #0c0f16;
+    --secondary: #1a1f2c;
+    --accent: #00e5ff;
+    --accent-alt: #ff3d7f;
+    --text: #f0f0f0;
+    --text-muted: #8b97b1;
+    --border: #2a314a;
+    --gradient: linear-gradient(135deg, #00e5ff, #2979ff);
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--primary);
+    color: var(--text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(0, 229, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(255, 61, 127, 0.08) 0%, transparent 40%);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 布局和组件样式将在主CSS文件中定义 */ 
